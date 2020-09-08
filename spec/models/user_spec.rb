@@ -1,6 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  let(:user1) do
+    User.create(name: 'deepesh', email: 'dp@gmail.com.com',
+                password: 'password', password_confirmation: 'password')
+  end
+  let(:user2) do
+    User.create(name: 'deep', email: 'dp@gmail.com',
+                password: 'password', password_confirmation: 'password')
+  end
+
+  let(:friendship) { Friendship.create(user_id: user1.id, friend_id: user2.id) }
+
+  describe '2 rows for mutual friendship' do
+    it 'creates a second row when invitation is confirmed' do
+      Friendship.create(user_id: user2.id, friend_id: user1.id)
+      user1.confirm_friend(user2)
+      row = Friendship.where(user_id: user1.id, friend_id: user2.id, status: true)
+      expect(row.empty?).not_to be true
+    end
+  end
+
   context 'validation user test' do
     it 'ensures password of user is present' do
       user = User.new(name: 'deepesh', email: 'dp@gmail.com').save
