@@ -15,20 +15,13 @@ class User < ApplicationRecord
   has_many :pending_friendships, -> {where status: false }, class_name: 'Friendship', foreign_key: 'user_id'
   has_many :pending_friends, through: :pending_friendships, source: :friend
 
+  has_many :requested_friends, -> {where status: false }, class_name: 'Friendship', foreign_key: 'friend_id'
+  has_many :friend_requests, through: :requested_friends, source: :user
+
   def friends
     friends_array = friendships.map { |friendship| friendship.friend if friendship.status } +
                     inverse_friendships.map { |friendship| friendship.user if friendship.status }
     friends_array.compact
-  end
-
-  # Users who have yet to confirme friend requests
-  # def pending_friends
-  #   friendships.map { |friendship| friendship.friend if !friendship.status || friendship.nil? }.compact
-  # end
-
-  # Users who have requested to be friends
-  def friend_requests
-    inverse_friendships.map { |friendship| friendship.user if !friendship.status || friendship.nil? }.compact
   end
 
   def confirm_friend(user)
