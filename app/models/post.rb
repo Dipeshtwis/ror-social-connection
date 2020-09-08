@@ -8,9 +8,9 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  def self.user_friend(current_user)
-    friend_ids = current_user.friends
-    friend_ids << current_user.id
-    Post.all.where(user_id: friend_ids)
-  end
+  # def self.user_friend(current_user)
+  #   friend_ids = current_user.friends
+  #   friend_ids << current_user.id
+  #   Post.all.where(user_id: friend_ids)
+  # end
 end
