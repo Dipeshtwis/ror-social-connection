@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Posts", type: :request do
-   include Devise::Test::IntegrationHelpers
+RSpec.describe 'Posts', type: :request do
+  include Devise::Test::IntegrationHelpers
 
   describe 'GET#index' do
     before { get posts_path }
