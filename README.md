@@ -15,6 +15,7 @@
 <p align="center">
 <a href="#with">Built with</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#sc">Screenshot</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#ld">Live Demo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#gs">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#author">Author</a>
 </p>
@@ -27,6 +28,11 @@
 ## Screenshot <a name = "sc"></a>
 
 ![screenshot](./app/assets/images/RorSocialScaffold.png)
+
+
+## 🔴 Live Demo <a name = "ld"></a>
+
+[Live Website](https://friendpost.herokuapp.com/)
 
 
 ## Getting Started <a name = "gs"></a>
